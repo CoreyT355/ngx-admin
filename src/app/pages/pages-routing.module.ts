@@ -3,13 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RoadmapComponent } from './roadmap/roadmap.component';
+import { MtgComponent } from "./mtg/mtg.component";
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [{
+    path: 'roadmap',
+    component: RoadmapComponent,
+  }, {
     path: 'dashboard',
     component: DashboardComponent,
+  }, {
+    path: 'mtg',
+    component: MtgComponent,
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',

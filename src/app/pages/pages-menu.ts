@@ -2,11 +2,21 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'Roadmap',
+    icon: 'fa fa-road',
+    link: '/pages/roadmap',
+    home: true,
+  },
+  {
     title: 'Dashboard',
     icon: 'nb-home',
     link: '/pages/dashboard',
-    home: true,
   },
+  // {
+  //   title: 'MtG',
+  //   icon: 'fa fa-trophy',
+  //   link: '/pages/mtg'
+  // },
   {
     title: 'FEATURES',
     group: true,
@@ -106,15 +116,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Echarts',
         link: '/pages/charts/echarts',
-      },
-      {
+      }, {
         title: 'Charts.js',
         link: '/pages/charts/chartjs',
-      },
-      {
+      }, {
         title: 'D3',
         link: '/pages/charts/d3',
-      },
+      }, {
+        title: 'Highcharts',
+        link: '/pages/charts/highcharts',
+      }
     ],
   },
   {

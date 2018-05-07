@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { ChartModule } from 'angular2-chartjs';
+import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 
 import { ThemeModule } from '../../@theme/theme.module';
 
 import { ChartsRoutingModule, routedComponents } from './charts-routing.module';
-import { ChartjsBarComponent } from './chartjs/chartjs-bar.component';
-import { ChartjsLineComponent } from './chartjs/chartjs-line.component';
-import { ChartjsPieComponent } from './chartjs/chartjs-pie.component';
-import { ChartjsMultipleXaxisComponent } from './chartjs/chartjs-multiple-xaxis.component';
-import { ChartjsBarHorizontalComponent } from './chartjs/chartjs-bar-horizontal.component';
-import { ChartjsRadarComponent } from './chartjs/chartjs-radar.component';
 import { D3BarComponent } from './d3/d3-bar.component';
 import { D3LineComponent } from './d3/d3-line.component';
 import { D3PieComponent } from './d3/d3-pie.component';
@@ -25,14 +20,9 @@ import { EchartsMultipleXaxisComponent } from './echarts/echarts-multiple-xaxis.
 import { EchartsAreaStackComponent } from './echarts/echarts-area-stack.component';
 import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.component';
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
+import { HighchartsComponent } from './highcharts/highcharts.component';
 
 const components = [
-  ChartjsBarComponent,
-  ChartjsLineComponent,
-  ChartjsPieComponent,
-  ChartjsMultipleXaxisComponent,
-  ChartjsBarHorizontalComponent,
-  ChartjsRadarComponent,
   D3BarComponent,
   D3LineComponent,
   D3PieComponent,
@@ -46,10 +36,22 @@ const components = [
   EchartsAreaStackComponent,
   EchartsBarAnimationComponent,
   EchartsRadarComponent,
+  HighchartsComponent,
 ];
+
+declare var require: any;
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
 @NgModule({
   imports: [ThemeModule, ChartsRoutingModule, NgxEchartsModule, NgxChartsModule, ChartModule],
   declarations: [...routedComponents, ...components],
+  providers: [
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    },
+  ],
 })
 export class ChartsModule {}
