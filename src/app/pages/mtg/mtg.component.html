@@ -1,0 +1,19 @@
+<!--component html goes here -->
+<div class="row">
+    <nb-card class="col-md-3 col-sm-12 mx-1" *ngFor="let card of boosterPack">
+        <nb-card-header class="d-flex flex-column">
+            <div>{{card.name}}</div>
+            <div>{{card.type}}</div>
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid={{card.multiverseid}}&type=card" />
+                </div>
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+            <button class="btn btn-hero-primary btn-demo">Pick</button>
+        </nb-card-footer>
+    </nb-card>
+</div>
